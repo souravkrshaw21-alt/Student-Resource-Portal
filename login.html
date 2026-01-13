@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | KKCEM Portal</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <video autoplay loop muted playsinline class="back-video">
+        <source src="assets/images/background.mp4" type="video/mp4">
+    </video>
+    <div class="video_overlay"></div>
+
+    <header class="top_header">
+        <div class="header_left">
+            <div class="menu_toggle_btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-lock" style="color: white;"></i>
+                <div class="portal_title">Secure Login</div>
+            </div>
+        </div>
+        <div class="header_right">
+            <a href="index.html" class="nav_login_btn">
+                Home <i class="fa-solid fa-house"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="sidebar_overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar_header">
+            <h3>KKCEM Portal</h3>
+            <div class="menu_toggle_btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <ul class="menu_list">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            
+            <li>
+                <a href="#" onclick="toggleSubMenu('aboutSub')"><i class="fa-solid fa-landmark"></i> About <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="sub_menu" id="aboutSub">
+                    <li><a href="pages/about/academics.html">Academics</a></li>
+                    <li><a href="pages/about/admissions.html">Admissions</a></li>
+                    <li><a href="pages/about/placements.html">Placements</a></li>
+                </ul>
+            </li>
+
+            <li><a href="pages/announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
+            <li><a href="pages/about/contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            <li><a href="https://jutranchi.ac.in/?page_id=1113" target="_blank"><i class="fa-solid fa-university"></i> JUT Notices</a></li>
+            <li><a href="pages/scholarship.html"><i class="fa-solid fa-hand-holding-dollar"></i> Scholarships</a></li>
+            
+            <li><a href="#" onclick="openSettings()"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="login_card">
+        
+        <div class="login_header">
+            <h2 id="loginTitle">Student Login</h2>
+            <p id="loginSubText">Enter Reg No. & DOB (DDMMYYYY)</p>
+        </div>
+
+        <div class="login_tabs" id="standardTabs">
+            <button class="tab_btn active" id="tabStudent" onclick="switchTab('student')">Student</button>
+            <button class="tab_btn" id="tabTeacher" onclick="switchTab('teacher')">Teacher</button>
+        </div>
+
+        <form id="loginForm">
+            <div class="form_group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="usernameInput" placeholder="Registration Number" required>
+            </div>
+            
+            <div class="form_group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="passwordInput" placeholder="Date of Birth (e.g. 21092005)" required>
+                <i class="fa-solid fa-eye" id="togglePassword" title="Show/Hide Password"></i>
+            </div>
+
+            <button type="submit" class="submit_btn">
+                Secure Login <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </form>
+
+        <div class="admin_link_wrapper">
+            <a href="#" id="adminToggleBtn" class="admin_link_text">Admin? Log in here</a>
+        </div>
+
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+</html>

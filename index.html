@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Resource Portal | KKCEM</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+
+    <video autoplay loop muted playsinline class="back-video">
+        <source src="assets/images/background.mp4" type="video/mp4">
+    </video>
+    <div class="video_overlay"></div>
+
+    <header class="top_header">
+        <div class="header_left">
+            <div class="menu_toggle_btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-graduation-cap" style="color: white;"></i>
+                <div class="portal_title" style="font-size: 1rem;">Student Resource Portal</div>
+            </div>
+        </div>
+        <div class="header_right">
+            <a href="login.html" class="nav_login_btn">
+                Login <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="sidebar_overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar_header">
+            <h3>KKCEM Portal</h3>
+            <div class="menu_toggle_btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <ul class="menu_list">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+            
+            <li>
+                <a href="#" onclick="toggleSubMenu('aboutSub')"><i class="fa-solid fa-landmark"></i> About <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="sub_menu" id="aboutSub">
+                    <li><a href="pages/about/academics.html">Academics</a></li>
+                    <li><a href="pages/about/admissions.html">Admissions</a></li>
+                    <li><a href="pages/about/placements.html">Placements</a></li>
+                </ul>
+            </li>
+
+            <li><a href="pages/announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
+            <li><a href="pages/about/contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            <li><a href="https://jutranchi.ac.in/?page_id=1113" target="_blank"><i class="fa-solid fa-university"></i> JUT Notices</a></li>
+            <li><a href="pages/scholarship.html"><i class="fa-solid fa-hand-holding-dollar"></i> Scholarships</a></li>
+            
+            <li><a href="#" onclick="openSettings()"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="hero_container">
+        <div class="hero_card">
+            
+            <img src="assets/images/logo.png" alt="Logo" class="hero_logo">
+            
+            <h1>Welcome to Student Resource Portal</h1>
+            <p class="tagline">"Knowledge Is Power, Resources are Key"</p>
+            
+            <p class="desc">
+                The official digital hub for students. Access your <b>Lecture Notes</b>, check <b>Assignments</b>, and stay updated with the latest <b>Notices</b>. Log in securely to unlock your personal dashboard.
+            </p>
+
+            <div class="hero_buttons">
+                <a href="pages/announcements.html" class="h_btn">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Notices</span>
+                </a>
+                <a href="login.html" class="h_btn">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <span>Assignments</span>
+                </a>
+                <a href="login.html" class="h_btn">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Notes 🔒</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="chat_float">
+        <i class="fa-solid fa-comment-dots"></i>
+    </div>
+
+    <script src="js/navbar.js"></script>
+</body>
+</html>

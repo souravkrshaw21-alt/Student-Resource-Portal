@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placements | KKCEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <style>
+        .page_content { max-width: 900px; margin: 100px auto 40px auto; padding: 20px; }
+        .page_title { color: white; text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); font-weight: 700; }
+        .info_card { background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 6px solid var(--primary-green); backdrop-filter: blur(5px); animation: fadeInUp 0.5s ease forwards; }
+        .info_card h3 { color: var(--primary-green); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .activity_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .activity_item { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
+        .activity_item:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .activity_item i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 10px; display: block; }
+        .activity_item p { font-size: 0.9rem; font-weight: 600; color: #555; margin: 0; }
+        .recruiters_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 20px; }
+        .company_box { background: white; padding: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 6px rgba(0,0,0,0.05); transition: 0.3s; }
+        .company_box:hover { transform: scale(1.05); }
+        .company_box i { font-size: 2.5rem; color: #555; }
+        .disclaimer { font-size: 0.8rem; color: #ccc; text-align: center; margin-top: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted playsinline class="back-video"><source src="../../assets/images/background.mp4" type="video/mp4"></video>
+    <div class="video_overlay"></div>
+
+    <header class="top_header">
+        <div class="header_left">
+            <div class="menu_toggle_btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-briefcase" style="color:white;"></i><div class="portal_title">Placements</div></div>
+        </div>
+        <div class="header_right"><a href="../../login.html" class="nav_login_btn">Login <i class="fa-solid fa-arrow-right"></i></a></div>
+    </header>
+
+    <div class="sidebar_overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar_header"><h3>KKCEM Portal</h3><div class="menu_toggle_btn" onclick="closeSidebar()"><i class="fa-solid fa-times"></i></div></div>
+        <ul class="menu_list">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#" onclick="toggleSubMenu('aboutSub')"><i class="fa-solid fa-landmark"></i> About <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="sub_menu show" id="aboutSub">
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="placements.html" class="active" style="color:var(--accent-gold);">Placements</a></li>
+                </ul>
+            </li>
+            <li><a href="../../pages/announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            <li><a href="https://jutranchi.ac.in/?page_id=1113" target="_blank"><i class="fa-solid fa-university"></i> JUT Notices</a></li>
+            <li><a href="../../pages/scholarship.html"><i class="fa-solid fa-hand-holding-dollar"></i> Scholarships</a></li>
+            <li><a href="#" onclick="openSettings()"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="page_content">
+        <h1 class="page_title">Training & Placement</h1>
+        <div class="info_card">
+            <h3><i class="fa-solid fa-building-user"></i> The T&P Cell</h3>
+            <p style="color: #555; line-height: 1.6; font-size: 0.95rem;">Bridging the gap between academia and industry through continuous training and career guidance.</p>
+            <div class="activity_grid">
+                <div class="activity_item"><i class="fa-solid fa-handshake"></i><p>Interviews</p></div>
+                <div class="activity_item"><i class="fa-solid fa-industry"></i><p>Industry Visits</p></div>
+                <div class="activity_item"><i class="fa-solid fa-chalkboard-user"></i><p>Skill Training</p></div>
+                <div class="activity_item"><i class="fa-solid fa-user-tie"></i><p>Personality Dev</p></div>
+            </div>
+        </div>
+        <div class="info_card" style="border-left-color: var(--accent-gold);">
+            <h3><i class="fa-solid fa-network-wired"></i> Top Recruiters</h3>
+            <div class="recruiters_grid">
+                <div class="company_box"><i class="fa-brands fa-google" style="color: #4285F4;"></i></div>
+                <div class="company_box"><i class="fa-brands fa-microsoft" style="color: #00a4ef;"></i></div>
+                <div class="company_box"><i class="fa-brands fa-amazon" style="color: #FF9900;"></i></div>
+                <div class="company_box"><i class="fa-solid fa-code" style="color: #333;"></i></div>
+                <div class="company_box"><i class="fa-solid fa-laptop-code" style="color: #5d4037;"></i></div>
+            </div>
+        </div>
+        <p class="disclaimer">* Placement statistics vary by year. Logos for representation only.</p>
+    </div>
+
+    <script src="../../js/navbar.js"></script>
+    <script>
+        function openSettings() {
+            const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+            const modal = document.createElement('div');
+            modal.style.cssText = "position:fixed; bottom:0; left:0; width:100%; background:white; padding:30px; border-radius:20px 20px 0 0; box-shadow:0 -5px 20px rgba(0,0,0,0.3); z-index:5000; animation: fadeInUp 0.3s forwards;";
+            let content = `<h3>Settings</h3><hr style='margin:10px 0; border:0; border-top:1px solid #eee;'><div style='padding:10px 0; display:flex; justify-content:space-between;'><span>Dark Mode</span><span style='color:#aaa;'>Coming Soon</span></div>`;
+            if(isLoggedIn) content += `<button onclick="sessionStorage.clear(); window.location.href='../../index.html';" style='width:100%; padding:15px; background:#ffebee; color:#d32f2f; border:none; border-radius:10px; margin-top:15px; font-weight:bold;'>Logout</button>`;
+            content += `<button onclick="this.parentElement.remove()" style='margin-top:10px; width:100%; padding:10px; border:none; background:#f5f5f5; border-radius:10px;'>Close</button>`;
+            modal.innerHTML = content;
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>

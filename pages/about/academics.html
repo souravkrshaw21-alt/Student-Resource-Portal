@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics | KKCEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <style>
+        .page_content { max-width: 900px; margin: 100px auto 40px auto; padding: 20px; }
+        .page_title { color: white; text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); font-weight: 700; }
+        .dept_card { background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-left: 6px solid var(--primary-green); backdrop-filter: blur(5px); animation: fadeInUp 0.5s ease forwards; }
+        .dept_card h2 { color: var(--primary-green); font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .dept_list { list-style: none; padding: 0; }
+        .dept_list li { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #ddd; }
+        .dept_list li:last-child { border-bottom: none; margin-bottom: 0; }
+        .dept_name { font-size: 1.1rem; font-weight: 600; color: #333; display: block; margin-bottom: 5px; }
+        .dept_desc { font-size: 0.9rem; color: #666; margin-bottom: 8px; display: block; }
+        .seats_badge { background: #e8f5e9; color: var(--primary-green); padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; display: inline-block; border: 1px solid #c8e6c9; }
+        .eligibility_box { background: #fff3e0; padding: 15px; border-radius: 8px; font-size: 0.9rem; color: #e65100; border: 1px solid #ffe0b2; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted playsinline class="back-video"><source src="../../assets/images/background.mp4" type="video/mp4"></video>
+    <div class="video_overlay"></div>
+
+    <header class="top_header">
+        <div class="header_left">
+            <div class="menu_toggle_btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-graduation-cap" style="color:white;"></i><div class="portal_title">Academics</div></div>
+        </div>
+        <div class="header_right"><a href="../../login.html" class="nav_login_btn">Login <i class="fa-solid fa-arrow-right"></i></a></div>
+    </header>
+
+    <div class="sidebar_overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar_header"><h3>KKCEM Portal</h3><div class="menu_toggle_btn" onclick="closeSidebar()"><i class="fa-solid fa-times"></i></div></div>
+        <ul class="menu_list">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#" onclick="toggleSubMenu('aboutSub')"><i class="fa-solid fa-landmark"></i> About <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="sub_menu show" id="aboutSub">
+                    <li><a href="academics.html" class="active" style="color:var(--accent-gold);">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="placements.html">Placements</a></li>
+                </ul>
+            </li>
+            <li><a href="../../pages/announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            <li><a href="https://jutranchi.ac.in/?page_id=1113" target="_blank"><i class="fa-solid fa-university"></i> JUT Notices</a></li>
+            <li><a href="../../pages/scholarship.html"><i class="fa-solid fa-hand-holding-dollar"></i> Scholarships</a></li>
+            <li><a href="#" onclick="openSettings()"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="page_content">
+        <h1 class="page_title">Academic Programs</h1>
+        <div class="dept_card">
+            <h2><i class="fa-solid fa-book-open"></i> Undergraduate (B.Tech)</h2>
+            <p style="margin-bottom: 20px; color: #555;">4-year full-time degrees affiliated with <strong>Jharkhand University of Technology (JUT)</strong>.</p>
+            <ul class="dept_list">
+                <li><span class="dept_name">Mechanical Engineering</span><span class="dept_desc">Mechanics, manufacturing, design, thermal sciences.</span><span class="seats_badge">120 Seats</span></li>
+                <li><span class="dept_name">Civil Engineering</span><span class="dept_desc">Construction, infrastructure, structural design.</span><span class="seats_badge">120 Seats</span></li>
+                <li><span class="dept_name">Electrical Engineering</span><span class="dept_desc">Power systems, machines, control systems.</span><span class="seats_badge">60 Seats</span></li>
+                <li><span class="dept_name">Electronics & Communication (ECE)</span><span class="dept_desc">Signal processing, VLSI, communication.</span><span class="seats_badge">60 Seats</span></li>
+                <li><span class="dept_name">Computer Science (CSE)</span><span class="dept_desc">Programming, algorithms, software systems.</span><span class="seats_badge">60 Seats</span></li>
+            </ul>
+            <div class="eligibility_box"><strong><i class="fa-solid fa-circle-info"></i> Eligibility:</strong> 10+2 with PCM (45% Gen / 40% Reserved) + Entrance Test.</div>
+        </div>
+        <div class="dept_card" style="border-left-color: var(--accent-gold);">
+            <h2><i class="fa-solid fa-certificate"></i> Diploma (Polytechnic)</h2>
+            <ul class="dept_list">
+                <li><span class="dept_name">Diploma in Mechanical Engineering</span><span class="dept_desc">3-year vocational program (2nd Shift).</span><span class="seats_badge" style="background: #fff8e1; color: #f57f17; border-color: #ffe082;">3 Years</span></li>
+            </ul>
+            <div class="eligibility_box" style="color: #f57f17; background: #fff8e1; border-color: #ffe082;"><strong><i class="fa-solid fa-circle-info"></i> Eligibility:</strong> SSC pass with relevant vocational/ITI qualifications.</div>
+        </div>
+    </div>
+
+    <script src="../../js/navbar.js"></script>
+    <script>
+        function openSettings() {
+            const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+            const modal = document.createElement('div');
+            modal.style.cssText = "position:fixed; bottom:0; left:0; width:100%; background:white; padding:30px; border-radius:20px 20px 0 0; box-shadow:0 -5px 20px rgba(0,0,0,0.3); z-index:5000; animation: fadeInUp 0.3s forwards;";
+            let content = `<h3>Settings</h3><hr style='margin:10px 0; border:0; border-top:1px solid #eee;'><div style='padding:10px 0; display:flex; justify-content:space-between;'><span>Dark Mode</span><span style='color:#aaa;'>Coming Soon</span></div>`;
+            if(isLoggedIn) content += `<button onclick="sessionStorage.clear(); window.location.href='../../index.html';" style='width:100%; padding:15px; background:#ffebee; color:#d32f2f; border:none; border-radius:10px; margin-top:15px; font-weight:bold;'>Logout</button>`;
+            content += `<button onclick="this.parentElement.remove()" style='margin-top:10px; width:100%; padding:10px; border:none; background:#f5f5f5; border-radius:10px;'>Close</button>`;
+            modal.innerHTML = content;
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>

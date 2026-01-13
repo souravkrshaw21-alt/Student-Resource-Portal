@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard | KKCEM</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+</head>
+<body>
+
+    <div style="background: var(--primary-green); padding: 15px 20px; display:flex; justify-content:space-between; align-items:center; color:white; position: sticky; top: 0; z-index: 100;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="menu_toggle_btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <h3 style="font-weight: 600; margin: 0;">Faculty Portal</h3>
+        </div>
+        <button onclick="handleLogout()" style="background:rgba(255,255,255,0.2); border:none; color:white; cursor:pointer; padding: 8px 15px; border-radius: 20px; font-size: 0.85rem;">
+            <i class="fa-solid fa-power-off"></i> Logout
+        </button>
+    </div>
+
+    <div class="sidebar_overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar_header">
+            <h3>KKCEM Portal</h3>
+            <div class="menu_toggle_btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <ul class="menu_list">
+            <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#" class="active" style="border-left-color: #fbc02d; background: rgba(255,255,255,0.1);"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+            <li>
+                <a href="#" onclick="toggleSubMenu('dashAboutSub')"><i class="fa-solid fa-landmark"></i> About <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="sub_menu" id="dashAboutSub">
+                    <li><a href="../about/academics.html">Academics</a></li>
+                    <li><a href="../about/admissions.html">Admissions</a></li>
+                    <li><a href="../about/placements.html">Placements</a></li>
+                </ul>
+            </li>
+            <li><a href="../../pages/announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
+            <li><a href="../../pages/about/contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            <li><a href="https://jutranchi.ac.in/?page_id=1113" target="_blank"><i class="fa-solid fa-university"></i> JUT Notices</a></li>
+            <li><a href="../../pages/scholarship.html"><i class="fa-solid fa-hand-holding-dollar"></i> Scholarships</a></li>
+            <li><a href="#" onclick="openSettings()"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="dash_container">
+        <div class="profile_card">
+            <img src="" id="profileImg" class="profile_img" alt="Profile">
+            <div class="profile_info">
+                <h2 id="profileName">Loading...</h2>
+                <p id="profileID">Faculty ID: ...</p>
+                <span class="role_badge" style="background: #fff9c4; color: #555;">Faculty Member</span>
+            </div>
+        </div>
+
+        <div class="search_wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="universalSearch" placeholder="Search resources...">
+        </div>
+
+        <div class="grid_container">
+            <div class="mini_window">
+                <div class="window_header bg-notes">
+                    <span><i class="fa-solid fa-book"></i> Notes</span>
+                    <button class="view_all_btn" onclick="openModal('note')">View All</button>
+                </div>
+                <div class="window_content" id="mini_notes"><p class="loading_text">Loading...</p></div>
+            </div>
+            <div class="mini_window">
+                <div class="window_header bg-ebooks">
+                    <span><i class="fa-solid fa-book-atlas"></i> E-Books</span>
+                    <button class="view_all_btn" onclick="openModal('ebook')">View All</button>
+                </div>
+                <div class="window_content" id="mini_ebooks"><p class="loading_text">Loading...</p></div>
+            </div>
+            <div class="mini_window">
+                <div class="window_header bg-pyqs">
+                    <span><i class="fa-solid fa-clock-rotate-left"></i> PYQs</span>
+                    <button class="view_all_btn" onclick="openModal('pyq')">View All</button>
+                </div>
+                <div class="window_content" id="mini_pyqs"><p class="loading_text">Loading...</p></div>
+            </div>
+            <div class="mini_window">
+                <div class="window_header bg-notices">
+                    <span><i class="fa-solid fa-bell"></i> Class Notices</span>
+                    <button class="view_all_btn" onclick="openModal('notice')">View All</button>
+                </div>
+                <div class="window_content" id="mini_notices"><p class="loading_text">Loading...</p></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="fab" onclick="openUploadModal()" title="Upload New Material">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+
+    <div class="modal_overlay" id="viewModal">
+        <div class="modal_content scale-in">
+            <div class="modal_header">
+                <h3 id="modalTitle">Resource List</h3>
+                <i class="fa-solid fa-times close_modal" onclick="closeModal()"></i>
+            </div>
+            <div class="modal_body">
+                <table class="full_table">
+                    <thead><tr><th>Title</th><th>Uploaded By</th><th>Date</th><th>Action</th></tr></thead>
+                    <tbody id="modalTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal_overlay" id="uploadModal">
+        <div class="modal_content scale-in" style="height: auto; max-width: 500px;">
+            <div class="modal_header">
+                <h3><i class="fa-solid fa-cloud-arrow-up"></i> Upload Material</h3>
+                <i class="fa-solid fa-times close_modal" onclick="closeModal()"></i>
+            </div>
+            <div class="modal_body">
+                <form id="uploadForm">
+                    <div style="margin-bottom:15px;">
+                        <label>Title / Subject</label>
+                        <input type="text" id="upTitle" required placeholder="e.g. Thermodynamics Unit 2" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ddd; border-radius:5px;">
+                    </div>
+                    <div style="margin-bottom:15px;">
+                        <label>Category</label>
+                        <select id="upCategory" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ddd; border-radius:5px;">
+                            <option value="note">Notes</option>
+                            <option value="ebook">E-Book</option>
+                            <option value="pyq">PYQ</option>
+                            <option value="notice">Notice</option>
+                            <option value="assignment">Assignment</option>
+                            <option value="result">Result / Marksheet</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom:15px;">
+                        <label>Description</label>
+                        <textarea id="upDesc" rows="3" placeholder="Details..." style="width:100%; padding:10px; margin-top:5px; border:1px solid #ddd; border-radius:5px;"></textarea>
+                    </div>
+                    <div style="margin-bottom:20px;">
+                        <label>File (PDF/Image)</label>
+                        <input type="file" id="upFile" required style="margin-top:5px; width: 100%;">
+                    </div>
+                    <button type="submit" style="background:var(--primary-green); color:white; border:none; padding:12px; border-radius:8px; width:100%; font-weight:600; cursor:pointer;">
+                        <i class="fa-solid fa-upload"></i> Upload
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/navbar.js"></script>
+    <script type="module" src="../../js/dashboard.js"></script>
+    
+    <script>
+        function openSettings() {
+            const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+            const modal = document.createElement('div');
+            modal.style.cssText = "position:fixed; bottom:0; left:0; width:100%; background:white; padding:30px; border-radius:20px 20px 0 0; box-shadow:0 -5px 20px rgba(0,0,0,0.3); z-index:5000; animation: fadeInUp 0.3s forwards;";
+            let content = `<h3>Settings</h3><hr style='margin:10px 0; border:0; border-top:1px solid #eee;'>`;
+            content += `<div style='padding:10px 0; display:flex; justify-content:space-between;'><span>App Version</span><span style='color:#aaa;'>v1.0.0</span></div>`;
+            content += `<div style='padding:10px 0; display:flex; justify-content:space-between;'><span>Dark Mode</span><span style='color:#aaa;'>Coming Soon</span></div>`;
+            if(isLoggedIn) {
+                content += `<button onclick="sessionStorage.clear(); window.location.href='../../index.html';" style='width:100%; padding:15px; background:#ffebee; color:#d32f2f; border:none; border-radius:10px; margin-top:15px; font-weight:bold;'><i class="fa-solid fa-power-off"></i> Logout</button>`;
+            }
+            content += `<button onclick="this.parentElement.remove()" style='margin-top:10px; width:100%; padding:10px; border:none; background:#f5f5f5; border-radius:10px;'>Close</button>`;
+            modal.innerHTML = content;
+            document.body.appendChild(modal);
+        }
+    </script>
+
+</body>
+</html>

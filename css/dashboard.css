@@ -1,0 +1,178 @@
+/* css/dashboard.css */
+
+.dash_container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    padding-bottom: 80px;
+}
+
+/* --- PROFILE HEADER --- */
+.profile_card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 30px;
+    position: relative;
+    border-left: 5px solid var(--primary-green);
+}
+
+.profile_img {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eee;
+}
+
+.profile_info h2 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 5px; }
+.profile_info p { color: var(--text-light); font-size: 0.95rem; }
+.role_badge {
+    background: #e0e7ff; color: #3730a3;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 600;
+    margin-top: 5px; display: inline-block;
+}
+
+/* --- UNIVERSAL SEARCH --- */
+.search_wrapper {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+.search_wrapper i { color: #aaa; }
+.search_wrapper input { border: none; outline: none; flex: 1; font-size: 1rem; }
+
+/* --- GRID SYSTEM (Mini Windows) --- */
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.mini_window {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+.mini_window:hover { transform: translateY(-5px); }
+
+.window_header {
+    padding: 15px 20px;
+    color: white;
+    font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center;
+}
+/* Colors for headers */
+.bg-notes { background: linear-gradient(135deg, #1e88e5, #1565c0); }
+.bg-ebooks { background: linear-gradient(135deg, #e53935, #c62828); }
+.bg-pyqs { background: linear-gradient(135deg, #fb8c00, #ef6c00); }
+.bg-notices { background: linear-gradient(135deg, #43a047, #2e7d32); }
+
+.window_content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: hidden; /* Only show top few items */
+    background: #f8f9fa;
+    position: relative;
+}
+
+/* Overlay fade at bottom of mini window to hint more content */
+.window_content::after {
+    content: "";
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 50px;
+    background: linear-gradient(transparent, #f8f9fa);
+}
+
+.view_all_btn {
+    background: transparent; border: none; 
+    color: white; cursor: pointer; font-size: 0.85rem;
+    text-decoration: underline;
+}
+
+/* LIST ITEMS (Inside Windows) */
+.list_item {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.list_item h4 { font-size: 0.95rem; margin-bottom: 4px; color: #333; }
+.list_item span { font-size: 0.75rem; color: #888; }
+
+/* --- MODAL (POPUP FOR "VIEW ALL" & "UPLOAD") --- */
+.modal_overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    display: none; /* JS will toggle this */
+    justify-content: center; align-items: center;
+    backdrop-filter: blur(5px);
+}
+.modal_overlay.active { display: flex; animation: fadeIn 0.3s; }
+
+.modal_content {
+    background: white;
+    width: 90%; max-width: 800px;
+    height: 80vh;
+    border-radius: 15px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+}
+
+.modal_header {
+    padding: 20px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.close_modal { font-size: 1.5rem; cursor: pointer; color: #666; }
+
+.modal_body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Table in Modal */
+.full_table { width: 100%; border-collapse: collapse; }
+.full_table th { text-align: left; padding: 12px; background: #f8f9fa; border-bottom: 2px solid #ddd; color: #555; }
+.full_table td { padding: 12px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.action_btn_dl {
+    background: var(--primary-green); color: white;
+    padding: 5px 12px; border-radius: 4px; text-decoration: none; font-size: 0.8rem;
+}
+.delete_btn {
+    background: #e53935; color: white; border: none;
+    padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 10px;
+}
+
+/* FAB (Floating Upload Button) */
+.fab {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 60px; height: 60px;
+    background: var(--accent-gold);
+    color: #333;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    cursor: pointer; transition: 0.3s;
+}
+.fab:hover { transform: scale(1.1); }

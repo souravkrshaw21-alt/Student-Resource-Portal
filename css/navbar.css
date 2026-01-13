@@ -1,0 +1,74 @@
+/* css/navbar.css - FIXED & FORCED */
+
+/* --- TOP HEADER --- */
+.top_header {
+  position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 5%; 
+  background: rgba(0, 0, 0, 0.8); /* Darker for visibility */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2000; /* High priority */
+}
+
+.header_left, .header_right { display: flex; align-items: center; gap: 20px; }
+
+/* Hamburger Menu Button */
+.menu_toggle_btn {
+  font-size: 26px; color: white; cursor: pointer;
+  width: 50px; height: 50px; 
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; 
+  z-index: 2001; /* Above header */
+}
+.menu_toggle_btn:hover { background: rgba(255,255,255,0.2); }
+
+.portal_title { color: white; font-weight: 600; font-size: 1.1rem; }
+
+/* Login Button */
+.nav_login_btn {
+  background: white; color: var(--primary-green);
+  padding: 8px 20px; border-radius: 30px;
+  font-weight: 600; text-decoration: none;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* --- SIDEBAR (The Slide-out Menu) --- */
+.sidebar_overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 3000; /* SUPER HIGH */
+  opacity: 0; visibility: hidden; 
+  transition: 0.3s;
+}
+.sidebar_overlay.active { opacity: 1; visibility: visible; }
+
+.sidebar {
+  position: fixed; top: 0; left: 0; height: 100%; width: 280px;
+  background: #0a4d2e; 
+  box-shadow: 5px 0 25px rgba(0,0,0,0.5);
+  z-index: 3001; /* Highest Object */
+  transform: translateX(-100%); 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; flex-direction: column; 
+}
+.sidebar.open { 
+    transform: translateX(0) !important; /* Force open */
+}
+
+.sidebar_header {
+  height: 80px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; border-bottom: 1px solid rgba(255,255,255,0.1); color: white;
+}
+
+.menu_list { list-style: none; padding: 20px 0; }
+.menu_list li a {
+  display: flex; align-items: center; gap: 15px;
+  padding: 15px 25px; color: rgba(255,255,255,0.9);
+  text-decoration: none; font-size: 1rem;
+  border-left: 4px solid transparent;
+}
+.menu_list li a:hover {
+  background: rgba(255,255,255,0.1);
+  color: white; border-left-color: #fbc02d;
+}

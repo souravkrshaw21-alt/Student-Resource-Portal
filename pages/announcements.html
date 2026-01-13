@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements | KKCEM</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    
+    <style>
+        .page_content { max-width: 800px; margin: 100px auto; padding: 20px; }
+        
+        .page_title {
+            color: white;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            font-weight: 700;
+        }
+
+        .announce_card { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 25px; 
+            border-radius: 12px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            border-left: 5px solid var(--accent-gold); 
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+            animation: fadeInUp 0.5s ease forwards;
+            position: relative;
+        }
+        
+        .announce_card:hover { transform: translateX(5px); }
+
+        .date_badge { 
+            background: #f0f0f0; 
+            color: #555; 
+            font-size: 0.8rem; 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            display: inline-block; 
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .new_badge {
+            background: #ff5252;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        h2 { color: var(--primary-green); margin-bottom: 10px; font-size: 1.4rem; }
+        p { color: #555; line-height: 1.6; }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay loop muted playsinline class="back-video">
+        <source src="../assets/images/background.mp4" type="video/mp4">
+    </video>
+    <div class="video_overlay"></div>
+
+    <header class="top_header">
+        <div class="header_left">
+            <div class="menu_toggle_btn" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-bullhorn" style="color:white;"></i>
+                <div class="portal_title">Announcements</div>
+            </div>
+        </div>
+        <div class="header_right">
+            <a href="../login.html" class="nav_login_btn">
+                Login <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="sidebar_overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar_header">
+            <h3>KKCEM Portal</h3>
+            <div class="menu_toggle_btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <ul class="menu_list">
+            <li><a href="../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            
+            <li>
+                <a href="#" onclick="toggleSubMenu('aboutSub')"><i class="fa-solid fa-landmark"></i> About <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="sub_menu" id="aboutSub">
+                    <li><a href="about/academics.html">Academics</a></li>
+                    <li><a href="about/admissions.html">Admissions</a></li>
+                    <li><a href="about/placements.html">Placements</a></li>
+                </ul>
+            </li>
+
+            <li><a href="announcements.html" class="active"><i class="fa-solid fa-bullhorn"></i> Announcements</a></li>
+            <li><a href="about/contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            <li><a href="https://jutranchi.ac.in/?page_id=1113" target="_blank"><i class="fa-solid fa-university"></i> JUT Notices</a></li>
+            <li><a href="scholarship.html"><i class="fa-solid fa-hand-holding-dollar"></i> Scholarships</a></li>
+            
+            <li><a href="#" onclick="openSettings()"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="page_content">
+        <h1 class="page_title">Latest Updates</h1>
+        
+        <div class="announce_card">
+            <span class="date_badge"><i class="fa-regular fa-calendar"></i> Jan 12, 2026</span>
+            <span class="new_badge">NEW</span>
+            <h2>Welcome to the New Student Portal</h2>
+            <p>We are excited to launch the revamped Student Resource Portal. Students can now log in to access Lecture Notes, E-Books, and check their assignments online. Please register with your details if you face any issues.</p>
+        </div>
+
+        <div class="announce_card">
+            <span class="date_badge"><i class="fa-regular fa-calendar"></i> Jan 08, 2026</span>
+            <h2>Semester Exam Form Fill-up</h2>
+            <p>The form fill-up process for the upcoming 3rd and 5th Semester examinations has started. Visit the admin office or the JUT website to complete your registration before the deadline.</p>
+        </div>
+
+        <div class="announce_card">
+            <span class="date_badge"><i class="fa-regular fa-calendar"></i> Dec 20, 2025</span>
+            <h2>Winter Vacation Notice</h2>
+            <p>The college will remain closed for Winter Vacation from Dec 24th to Jan 2nd. Regular classes will resume from Jan 3rd, 2026.</p>
+        </div>
+
+    </div>
+
+    <script src="../js/navbar.js"></script>
+    <script>
+        function openSettings() {
+            const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+            const modal = document.createElement('div');
+            modal.style.cssText = "position:fixed; bottom:0; left:0; width:100%; background:white; padding:30px; border-radius:20px 20px 0 0; box-shadow:0 -5px 20px rgba(0,0,0,0.3); z-index:5000; animation: fadeInUp 0.3s forwards;";
+            
+            let content = `<h3>Settings</h3><hr style='margin:10px 0; border:0; border-top:1px solid #eee;'>`;
+            content += `<div style='padding:10px 0; display:flex; justify-content:space-between;'><span>App Version</span><span style='color:#aaa;'>v1.0.0</span></div>`;
+            content += `<div style='padding:10px 0; display:flex; justify-content:space-between;'><span>Dark Mode</span><span style='color:#aaa;'>Coming Soon</span></div>`;
+            
+            if(isLoggedIn) {
+                content += `<button onclick="sessionStorage.clear(); window.location.href='../index.html';" style='width:100%; padding:15px; background:#ffebee; color:#d32f2f; border:none; border-radius:10px; margin-top:15px; font-weight:bold;'><i class="fa-solid fa-power-off"></i> Logout</button>`;
+            }
+            
+            content += `<button onclick="this.parentElement.remove()" style='margin-top:10px; width:100%; padding:10px; border:none; background:#f5f5f5; border-radius:10px;'>Close</button>`;
+            
+            modal.innerHTML = content;
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>

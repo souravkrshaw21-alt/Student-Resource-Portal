@@ -1,0 +1,142 @@
+/* css/login.css */
+
+/* Center everything on the login page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login_card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    border: 2px solid var(--primary-green);
+    position: relative;
+    animation: scaleIn 0.3s ease forwards;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Header */
+.login_header { text-align: center; margin-bottom: 25px; }
+.login_header h2 { color: var(--text-dark); margin-bottom: 5px; }
+.login_header p { color: var(--text-light); font-size: 0.9rem; }
+
+/* Tabs */
+.login_tabs {
+    display: flex;
+    background: #f3f4f6;
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 25px;
+}
+
+.tab_btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.tab_btn.active {
+    background: white;
+    color: var(--primary-green);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Form */
+.form_group { margin-bottom: 20px; position: relative; }
+.form_group i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+
+.form_group input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.form_group input:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(10, 77, 46, 0.1);
+}
+
+/* Password Eye */
+#togglePassword {
+    left: auto;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* Button */
+.submit_btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.submit_btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+/* Admin Link */
+.admin_link_wrapper {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.admin_link_text {
+    font-size: 0.85rem;
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.admin_link_text:hover {
+    color: var(--primary-green);
+    text-decoration: underline;
+}
+
+/* Back to Home Link */
+.back_home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
